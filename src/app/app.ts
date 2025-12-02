@@ -289,6 +289,17 @@ export class App {
     } else{
       this.strikeUtilization("Erweiterungsbau Schule");
     }
+    
+    if(selection.altenheim){
+      this.changePrioOfUtilization("Alten-Service-Zentrum", 1);
+      this.changePrioOfUtilization("Gemeindezentrum", 1);
+      this.changePrioOfUtilization("Gemeinschaftsgarten", 1);
+      this.changePrioOfUtilization("Gemeinschaftliches Alterswohnen", 1);
+      this.changePrioOfUtilization("Kolumbarium", 1);
+      this.changePrioOfUtilization("Erweiterungsbau Altenheim", 1);
+    } else{
+      this.strikeUtilization("Erweiterungsbau Altenheim");
+    }
   }
   processBausubstanz(selection: string | null | undefined) {
     switch ( selection ) {
