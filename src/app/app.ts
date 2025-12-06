@@ -53,7 +53,7 @@ export class App {
   intializeUtilizationArray(this: any){
     this.utilizations = [];
     this.utilizations.push({prio: 0, strike: false, label: Utilizations.Turnhalle});
-    this.utilizations.push({prio: 0, strike: false, label: "Kletterhalle"});
+    this.utilizations.push({prio: 0, strike: false, label: Utilizations.Kletterhalle});
     this.utilizations.push({prio: 0, strike: false, label: "Hallenbad"});
     this.utilizations.push({prio: 0, strike: false, label: "Indoor-Spielplatz"});
     this.utilizations.push({prio: 0, strike: false, label: "Tanzschule"});
@@ -144,7 +144,7 @@ export class App {
     } 
     switch ( selection ) {
       case "cityFormative":
-        this.changePrioOfUtilization("Kletterhalle", 2);
+        this.changePrioOfUtilization(Utilizations.Kletterhalle, 2);
         this.changePrioOfUtilization("Hallenbad", 2);
         this.changePrioOfUtilization("Freibad", 2);
         this.changePrioOfUtilization("Universitätsgebäude", 2);
