@@ -1,7 +1,8 @@
 export enum Tags {
     Innenraum = "Innenraum",
     Aussenraum = "Außenraum",
-    Repraesentativ = "Repräsentativ",
+    RepraesentativStadt = "Repräsentativ Stadt",
+    RepraesentativQuartier = "Repräsentativ Quartier",
     nichtRepraesentativ = "Nicht Repräsentativ",
     ZielgruppeSenioren = "Zielgruppe Senioren",
     ZielgruppeKinder = "Zielgruppe Kinder",
@@ -21,5 +22,8 @@ export enum Tags {
     ErfordertKeinLicht = "Erfordert kein Licht",
     Infrastruktur = "Infrastruktur",
     IndustrieUndHandel = "Industrie und Handel",
-    
+    PublikumsMagnet = "Publikumsmagnet",
+    KonstantesPublikum = "konstantes Publikum",
+    KeinPublikum = "kein Publikum",
+    Konsumfrei = "Konsumfrei"
 }

@@ -8,21 +8,27 @@
       1. Ist das Gebäude eher stadtprägend, quartierprägend, stadtprägend und
       quartierprägend oder nicht prägend? 
     </h4>
+    <h6 class="text-muted">
+      Erläuterung: Ein stadtprägendes  Gebäude liegt zentral und trägt stark zur Stadtidentifikation bei. <br>
+      Ein quartierprägendes Gebäude liegt im Zentrum eines Quartiers, oft an einem Platz oder ähnlichen Orten.
+    </h6>
       <div class="form-check">
         <label class="form-check-label">
           <input class="form-check-input" type="radio" value="cityFormative" formControlName="formative">stadtprägend
         </label>
       </div>
-      <div>
+      <div class="form-check">
         <label class="form-check-label">
           <input class="form-check-input" type="radio" value="quaterFormative" formControlName="formative">  quartierprägend
         </label>
       </div>
+      <div class="form-check">
         <label class="form-check-label">
           <input class="form-check-input" type="radio" value="quaterCityFormative" formControlName="formative"> stadtprägend und
       quartierprägend
         </label>
-      <div>
+      </div>
+      <div class="form-check">
         <label class="form-check-label">
           <input class="form-check-input" type="radio" value="notFormative" formControlName="formative"> nicht prägend
         </label>
@@ -31,7 +37,7 @@
     <br />
   <div class="card p-3 my-3">
     <h4 class="card-title mb-2"> 
-      2. Gibt es in unmittelbarer Umgebung eine oder meherere der folgenden Funktionen? 
+      2. Gibt es angenzend eine oder meherere der folgenden Funktionen? 
     </h4>
       <div formGroupName="anliegendeNutzungen">
         <div class="form-check">
@@ -64,8 +70,12 @@
     <br />
   <div class="card p-3 my-3">
     <h4 class="card-title mb-2"> 
-      3. Wo befindet sich aus städtebaulicher Sicht der Haupteingang der Kirche? 
+      3. Wo befindet der Haupteingang der Kirche? 
     </h4>
+     <h6 class="text-muted">
+      Erläuterung: Der architektonische Haupteingang einer Kirche befindet sich meist an der weltlichen Querseite. <br>
+      Durch das Trampelpfad-Prinzip bildet sich hin und wieder jedoch ein längsseitiger Haupteingang heraus.
+     </h6>
       <div class="form-check">
         <label class="form-check-label">
           <input class="form-check-input" type="radio" value="ImWestwerk" formControlName="entrance"> Im Westwerk
