@@ -13,7 +13,7 @@ export enum Utilizations {
     AltenServiceZentrum = "Alten-Service-Zentrum",
     Gemeindezentrum = "Gemeindezentrum",
     Sozialkaufhaus = "Sozialkaufhaus",
-    Vereinszentrum = "Vereinszenrum",
+    Vereinszentrum = "Vereinszentrum",
     LernUndLeseOrt = "Lern- und Leseort",
     Bibliothek = "Bibliothek",
     Nachbarschaftsrestaurant = "Nachbarschaftsrestaurant",
