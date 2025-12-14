@@ -238,7 +238,7 @@ export class App {
   }
 
   private sortPrio(): ((a: Utilization, b: Utilization) => number) | undefined {
-    return (a, b) => (a.prio < b.prio ? -1 : 1);
+    return (a, b) => (a.prio > b.prio ? -1 : 1);
   }
 
   processFormative(this: any, selection: string | null | undefined) {
