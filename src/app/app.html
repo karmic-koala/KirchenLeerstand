@@ -1,17 +1,16 @@
-
 <div class="container mt-4">
   <h1>Kirchenbingo</h1>
   <h2>Fragebogen:</h2>
-<form [formGroup]="statistik">
-  <div class="card p-3 my-3">
-    <h4 class="card-title mb-2"> 
-      1. Ist das Gebäude eher stadtprägend, quartierprägend, stadtprägend und
-      quartierprägend oder nicht prägend? 
-    </h4>
-    <h6 class="text-muted">
-      Erläuterung: Ein stadtprägendes  Gebäude liegt zentral und trägt stark zur Stadtidentifikation bei. <br>
-      Ein quartierprägendes Gebäude liegt im Zentrum eines Quartiers, oft an einem Platz oder ähnlichen Orten.
-    </h6>
+  <form [formGroup]="statistik">
+    <div class="card p-3 my-3">
+      <h4 class="card-title mb-2">
+        1. Ist das Gebäude eher stadtprägend, quartierprägend, stadtprägend und
+        quartierprägend oder nicht prägend?
+      </h4>
+      <h6 class="text-muted">
+        Erläuterung: Ein stadtprägendes Gebäude liegt zentral und trägt stark zur Stadtidentifikation bei. <br>
+        Ein quartierprägendes Gebäude liegt im Zentrum eines Quartiers, oft an einem Platz oder ähnlichen Orten.
+      </h6>
       <div class="form-check">
         <label class="form-check-label">
           <input class="form-check-input" type="radio" value="cityFormative" formControlName="formative">stadtprägend
@@ -19,13 +18,15 @@
       </div>
       <div class="form-check">
         <label class="form-check-label">
-          <input class="form-check-input" type="radio" value="quaterFormative" formControlName="formative">  quartierprägend
+          <input class="form-check-input" type="radio" value="quaterFormative" formControlName="formative">
+          quartierprägend
         </label>
       </div>
       <div class="form-check">
         <label class="form-check-label">
-          <input class="form-check-input" type="radio" value="quaterCityFormative" formControlName="formative"> stadtprägend und
-      quartierprägend
+          <input class="form-check-input" type="radio" value="quaterCityFormative" formControlName="formative">
+          stadtprägend und
+          quartierprägend
         </label>
       </div>
       <div class="form-check">
@@ -35,10 +36,10 @@
       </div>
     </div>
     <br />
-  <div class="card p-3 my-3">
-    <h4 class="card-title mb-2"> 
-      2. Gibt es angenzend eine oder meherere der folgenden Funktionen? 
-    </h4>
+    <div class="card p-3 my-3">
+      <h4 class="card-title mb-2">
+        2. Gibt es angenzend eine oder meherere der folgenden Funktionen?
+      </h4>
       <div formGroupName="anliegendeNutzungen">
         <div class="form-check">
           <label class="form-check-label">
@@ -61,16 +62,17 @@
           </label>
         </div>
       </div>
-  </div>
+    </div>
     <br />
-  <div class="card p-3 my-3">
-    <h4 class="card-title mb-2"> 
-      3. Wo befindet der Haupteingang der Kirche? 
-    </h4>
-     <h6 class="text-muted">
-      Erläuterung: Der architektonische Haupteingang einer Kirche befindet sich meist an der weltlichen Querseite. <br>
-      Durch das Trampelpfad-Prinzip bildet sich hin und wieder jedoch ein längsseitiger Haupteingang heraus.
-     </h6>
+    <div class="card p-3 my-3">
+      <h4 class="card-title mb-2">
+        3. Wo befindet der Haupteingang der Kirche?
+      </h4>
+      <h6 class="text-muted">
+        Erläuterung: Der architektonische Haupteingang einer Kirche befindet sich meist an der weltlichen Querseite.
+        <br>
+        Durch das Trampelpfad-Prinzip bildet sich hin und wieder jedoch ein längsseitiger Haupteingang heraus.
+      </h6>
       <div class="form-check">
         <label class="form-check-label">
           <input class="form-check-input" type="radio" value="ImWestwerk" formControlName="entrance"> Im Westwerk
@@ -81,12 +83,12 @@
           <input class="form-check-input" type="radio" value="Seitlich" formControlName="entrance"> Seitlich
         </label>
       </div>
-  </div>
+    </div>
     <br />
-  <div class="card p-3 my-3">
-    <h4 class="card-title mb-2"> 
-      4. Um welchen Bautypus handelt es sich bei der Kirche? 
-    </h4>
+    <div class="card p-3 my-3">
+      <h4 class="card-title mb-2">
+        4. Um welchen Bautypus handelt es sich bei der Kirche?
+      </h4>
       <div class="form-check">
         <label class="form-check-label">
           <input class="form-check-input" type="radio" value="Basilika" formControlName="type"> Basilika
@@ -102,12 +104,12 @@
           <input class="form-check-input" type="radio" value="Saalkirche" formControlName="type"> Saalkirche
         </label>
       </div>
-  </div>
+    </div>
     <br />
-  <div class="card p-3 my-3">
-    <h4 class="card-title mb-2"> 
-      5. Steht das Gebäude unter Denkmalschutz? 
-    </h4>
+    <div class="card p-3 my-3">
+      <h4 class="card-title mb-2">
+        5. Steht das Gebäude unter Denkmalschutz?
+      </h4>
       <div class="form-check">
         <label class="form-check-label">
           <input class="form-check-input" type="radio" value="Ja" formControlName="protection"> Ja
@@ -115,7 +117,8 @@
       </div>
       <div class="form-check">
         <label class="form-check-label">
-          <input class="form-check-input" type="radio" value="JaAussen" formControlName="protection"> Ja, Außengestaltung
+          <input class="form-check-input" type="radio" value="JaAussen" formControlName="protection"> Ja,
+          Außengestaltung
         </label>
       </div>
       <div class="form-check">
@@ -123,141 +126,142 @@
           <input class="form-check-input" type="radio" value="Nein" formControlName="protection"> Nein
         </label>
       </div>
-  </div>
+    </div>
     <br />
-  <div class="card p-3 my-3">
-    <h4 class="card-title mb-2"> 
-      6. In welchem Zustand ist die Bausubstanz des Gebäudes? 
-    </h4>
-    <div>
-      <div class="form-check">
-        <label class="form-check-label">
-          <input class="form-check-input" type="radio" value="Gut" formControlName="bausubstanz"> Gut
-        </label>
-      </div>
-      <div class="form-check">
-        <label class="form-check-label">
-          <input class="form-check-input" type="radio" value="Schlecht" formControlName="bausubstanz"> Schlecht
-        </label>
-      </div>
-      <div class="form-check">
-        <label class="form-check-label">
-          <input class="form-check-input" type="radio" value="SehrSchlecht" formControlName="bausubstanz"> Sehr Schlecht
-        </label>
+    <div class="card p-3 my-3">
+      <h4 class="card-title mb-2">
+        6. In welchem Zustand ist die Bausubstanz des Gebäudes?
+      </h4>
+      <div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" value="Gut" formControlName="bausubstanz"> Gut
+          </label>
         </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" value="Schlecht" formControlName="bausubstanz"> Schlecht
+          </label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" value="SehrSchlecht" formControlName="bausubstanz"> Sehr
+            Schlecht
+          </label>
+        </div>
+      </div>
     </div>
-  </div>
     <br />
-  <div class="card p-3 my-3">
-    <h4 class="card-title mb-2">
-      7. Wie hoch ist der Altersquotient im Quartier in Prozent? 
-    </h4>
-    <div>
-      <input class="form-control w-auto" type="number" formControlName="altersquotient"/>
+    <div class="card p-3 my-3">
+      <h4 class="card-title mb-2">
+        7. Wie hoch ist der Altersquotient im Quartier in Prozent?
+      </h4>
+      <div>
+        <input class="form-control w-auto" type="number" formControlName="altersquotient" />
+      </div>
     </div>
-  </div>
     <br />
-  <div class="card p-3 my-3">
-    <h4 class="card-title mb-2"> 
-      8. Wie hoch ist der Jugendquotient im Quartier in Prozent? 
-    </h4>
-    <div>
-      <input class="form-control w-auto" type="number" formControlName="jugendquotient"/>
+    <div class="card p-3 my-3">
+      <h4 class="card-title mb-2">
+        8. Wie hoch ist der Jugendquotient im Quartier in Prozent?
+      </h4>
+      <div>
+        <input class="form-control w-auto" type="number" formControlName="jugendquotient" />
+      </div>
     </div>
-  </div>
     <br />
-  <div class="card p-3 my-3">
-    <h4 class="card-title mb-2">
-       9. Wie hoch ist der Anteil an jungen Erwachsenen (18-25 Jahre) im Quartier in Prozent? 
-    </h4>
-    <div>
-      <input class="form-control w-auto" type="number" formControlName="youngAdults"/>
+    <div class="card p-3 my-3">
+      <h4 class="card-title mb-2">
+        9. Wie hoch ist der Anteil an jungen Erwachsenen (18-25 Jahre) im Quartier in Prozent?
+      </h4>
+      <div>
+        <input class="form-control w-auto" type="number" formControlName="youngAdults" />
+      </div>
     </div>
-  </div>
     <br />
-  <div class="card p-3 my-3">
-    <h4 class="card-title mb-2"> 
-      10. Wie hoch ist der Anteil an SGB-II EmpfängerInnen im Quartier in Prozent? 
-    </h4>
-    <div>
-      <input class="form-control w-auto" type="number" formControlName="poverty"/>
+    <div class="card p-3 my-3">
+      <h4 class="card-title mb-2">
+        10. Wie hoch ist der Anteil an SGB-II EmpfängerInnen im Quartier in Prozent?
+      </h4>
+      <div>
+        <input class="form-control w-auto" type="number" formControlName="poverty" />
+      </div>
     </div>
-  </div>
     <br />
-  <div class="card p-3 my-3">
-    <h4 class="card-title mb-2"> 
-      11. Wie hoch ist der Anteil an Menschen, deren Wohndauer weniger als drei Jahre beträgt in Prozent? 
-    </h4>
-    <div>
-      <input class="form-control w-auto" type="number" formControlName="stability"/>
+    <div class="card p-3 my-3">
+      <h4 class="card-title mb-2">
+        11. Wie hoch ist der Anteil an Menschen, deren Wohndauer weniger als drei Jahre beträgt in Prozent?
+      </h4>
+      <div>
+        <input class="form-control w-auto" type="number" formControlName="stability" />
+      </div>
     </div>
-  </div>
     <br />
-  <div class="card p-3 my-3">
-    <h4 class="card-title mb-2"> 
-      12. Wie hoch ist der Anteil an Menschen mit Migrationshintergrund in Prozent? 
-    </h4>
-    <div>
-      <input class="form-control w-auto" type="number" formControlName="migration"/>
+    <div class="card p-3 my-3">
+      <h4 class="card-title mb-2">
+        12. Wie hoch ist der Anteil an Menschen mit Migrationshintergrund in Prozent?
+      </h4>
+      <div>
+        <input class="form-control w-auto" type="number" formControlName="migration" />
+      </div>
     </div>
-  </div>
     <br />
     <!-- <button type="button" [disabled]="!statistik.valid" (click)="calcUtilizations()">Berechne Nutzungen</button> -->
-    <button type="button"class="btn btn-secondary btn-lg" (click)="calcUtilizations()">Berechne Nutzungen</button>
-</form>
+    <button type="button" class="btn btn-secondary btn-lg" (click)="calcUtilizations()">Berechne Nutzungen</button>
+  </form>
 
 
-<br>
-<br>
-<h2>Mögliche Nutzungen</h2>
-@if(utilizationsMain.length>0) { <h3>Hauptnutzung</h3> }
-<div class="container">
-  <div class="row">
-    @for (utilization of utilizationsMain; track $index) {
-    <div class="col">
-      <p>
-        @if (utilization.strike) {
+  <br>
+  <br>
+  <h2>Mögliche Nutzungen</h2>
+  @if(utilizationsMain.length>0) { <h3>Hauptnutzung</h3> }
+  <div class="container">
+    <div class="row">
+      @for (utilization of utilizationsMain; track $index) {
+      <div class="col">
+        <p>
+          @if (utilization.strike) {
           <s>{{ utilization.label }}</s>
-        } @else {
-          <span> {{ utilization.label}} </span> <span class="badge bg-success" >{{utilization.prio}}</span>
-        }
-      </p> 
+          } @else {
+          <span> {{ utilization.label}} </span> <span class="badge bg-success">{{utilization.prio}}</span>
+          }
+        </p>
+      </div>
+      @if (($index+1)%3 === 0) {<div class="w-100"></div>}
+      }
     </div>
-    @if (($index+1)%3 === 0) {<div class="w-100"></div>}
-}
   </div>
-</div>
-@if(utilizationsSecondary.length>0) { <h3>Nebennutzung</h3> }
-<div class="container">
-  <div class="row">
-    @for (utilization of utilizationsSecondary; track $index) {
-    <div class="col">
-      <p>
-        @if (utilization.strike) {
+  @if(utilizationsSecondary.length>0) { <h3>Nebennutzung</h3> }
+  <div class="container">
+    <div class="row">
+      @for (utilization of utilizationsSecondary; track $index) {
+      <div class="col">
+        <p>
+          @if (utilization.strike) {
           <s>{{ utilization.label }}</s>
-        } @else {
-          <span> {{ utilization.label}} </span> <span class="badge bg-success" >{{utilization.prio}}</span>
-        }
-      </p> 
+          } @else {
+          <span> {{ utilization.label}} </span> <span class="badge bg-success">{{utilization.prio}}</span>
+          }
+        </p>
+      </div>
+      @if (($index+1)%3 === 0) {<div class="w-100"></div>}
+      }
     </div>
-    @if (($index+1)%3 === 0) {<div class="w-100"></div>}
-}
   </div>
-  </div>
-@if(utilizationsBoth.length>0) { <h3>Haupt- und Nebennutzung</h3> }
-<div class="container">
-  <div class="row">
-    @for (utilization of utilizationsBoth; track $index) {
-    <div class="col">
-      <p>
-        @if (utilization.strike) {
+  @if(utilizationsBoth.length>0) { <h3>Haupt- und Nebennutzung</h3> }
+  <div class="container">
+    <div class="row">
+      @for (utilization of utilizationsBoth; track $index) {
+      <div class="col">
+        <p>
+          @if (utilization.strike) {
           <s>{{ utilization.label }}</s>
-        } @else {
-          <span> {{ utilization.label}} </span> <span class="badge bg-success" >{{utilization.prio}}</span>
-        }
-      </p> 
+          } @else {
+          <span> {{ utilization.label}} </span> <span class="badge bg-success">{{utilization.prio}}</span>
+          }
+        </p>
+      </div>
+      @if (($index+1)%3 === 0) {<div class="w-100"></div>}
+      }
     </div>
-    @if (($index+1)%3 === 0) {<div class="w-100"></div>}
-}
-  </div>
   </div>

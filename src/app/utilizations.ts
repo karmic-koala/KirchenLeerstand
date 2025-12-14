@@ -27,7 +27,7 @@ export enum Utilizations {
     Freibad = "Freibad",
     Sportplatz = "Sportplatz",
     Tennisplatz = "Tennisplatz",
-    WohngruppeFrauenUndAlleinerziehend = "WohngruppeFrauenUndAlleinerziehende",
+    WohngruppeFrauenUndAlleinerziehend = "Wohngruppe Frauen Und Alleinerziehende",
     Baumarkt = "Baumarkt",
     Gartencenter = "Gartencenter",
     Moebelhaus = "Möbelhaus",
