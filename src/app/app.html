@@ -61,6 +61,16 @@
             <input class="form-check-input" type="checkbox" formControlName="sportplatz"> Sportplatz
           </label>
         </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" formControlName="parken"> versiegelte Freifläche
+          </label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" formControlName="industrie"> Industriegebiet
+          </label>
+        </div>
       </div>
     </div>
     <br />
@@ -106,9 +116,30 @@
       </div>
     </div>
     <br />
+        <div class="card p-3 my-3">
+      <h4 class="card-title mb-2">
+        5. Wie groß ist der Hauptraum der Kirche?
+      </h4>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" value="Gross" formControlName="size"> Breite: ≥ 15m; Länge ≥ 27m
+        </label>
+      </div>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" value="Mittel" formControlName="size"> Breite: ≤ 15m, ≥ 8m; Länge ≤ 27m, ≥ 25m
+        </label>
+      </div>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" value="Klein" formControlName="size"> Breite: ≤ 8m; Länge ≤ 25m
+        </label>
+      </div>
+    </div>
+    <br />
     <div class="card p-3 my-3">
       <h4 class="card-title mb-2">
-        5. Steht das Gebäude unter Denkmalschutz?
+        6. Steht das Gebäude unter Denkmalschutz?
       </h4>
       <div class="form-check">
         <label class="form-check-label">
@@ -128,9 +159,25 @@
       </div>
     </div>
     <br />
+        <div class="card p-3 my-3">
+      <h4 class="card-title mb-2">
+        7. Befinden sich im Bodenbereich Gräber oder ist er anderweitig geschützt?
+      </h4>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" value="Ja" formControlName="floor"> Ja
+        </label>
+      </div>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" value="Nein" formControlName="floor"> Nein
+        </label>
+      </div>
+    </div>
+    <br />
     <div class="card p-3 my-3">
       <h4 class="card-title mb-2">
-        6. In welchem Zustand ist die Bausubstanz des Gebäudes?
+        8. In welchem Zustand ist die Bausubstanz des Gebäudes?
       </h4>
       <div>
         <div class="form-check">
@@ -154,7 +201,7 @@
     <br />
     <div class="card p-3 my-3">
       <h4 class="card-title mb-2">
-        7. Wie hoch ist der Altersquotient im Quartier in Prozent?
+        9. Wie hoch ist der Altersquotient im Quartier in Prozent?
       </h4>
       <div>
         <input class="form-control w-auto" type="number" formControlName="altersquotient" />
@@ -163,7 +210,7 @@
     <br />
     <div class="card p-3 my-3">
       <h4 class="card-title mb-2">
-        8. Wie hoch ist der Jugendquotient im Quartier in Prozent?
+        10. Wie hoch ist der Jugendquotient im Quartier in Prozent?
       </h4>
       <div>
         <input class="form-control w-auto" type="number" formControlName="jugendquotient" />
@@ -172,7 +219,7 @@
     <br />
     <div class="card p-3 my-3">
       <h4 class="card-title mb-2">
-        9. Wie hoch ist der Anteil an jungen Erwachsenen (18-25 Jahre) im Quartier in Prozent?
+        11. Wie hoch ist der Anteil an jungen Erwachsenen (18-25 Jahre) im Quartier in Prozent?
       </h4>
       <div>
         <input class="form-control w-auto" type="number" formControlName="youngAdults" />
@@ -181,7 +228,7 @@
     <br />
     <div class="card p-3 my-3">
       <h4 class="card-title mb-2">
-        10. Wie hoch ist der Anteil an SGB-II EmpfängerInnen im Quartier in Prozent?
+        12. Wie hoch ist der Anteil an SGB-II EmpfängerInnen im Quartier in Prozent?
       </h4>
       <div>
         <input class="form-control w-auto" type="number" formControlName="poverty" />
@@ -190,7 +237,7 @@
     <br />
     <div class="card p-3 my-3">
       <h4 class="card-title mb-2">
-        11. Wie hoch ist der Anteil an Menschen, deren Wohndauer weniger als drei Jahre beträgt in Prozent?
+        13. Wie hoch ist der Anteil an Menschen, deren Wohndauer weniger als drei Jahre beträgt in Prozent?
       </h4>
       <div>
         <input class="form-control w-auto" type="number" formControlName="stability" />
@@ -199,7 +246,7 @@
     <br />
     <div class="card p-3 my-3">
       <h4 class="card-title mb-2">
-        12. Wie hoch ist der Anteil an Menschen mit Migrationshintergrund in Prozent?
+        14. Wie hoch ist der Anteil an Menschen mit Migrationshintergrund in Prozent?
       </h4>
       <div>
         <input class="form-control w-auto" type="number" formControlName="migration" />

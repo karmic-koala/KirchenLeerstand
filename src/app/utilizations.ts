@@ -68,4 +68,11 @@ export enum Utilizations {
     Kolumbarium = "Kolumbarium",
     Umkleide = "Umkleide",
     Backstage = "Backstage",
+    Supermarkt = "Supermarkt",
+    Hotel = "Hotel",
+    Hostel = "Hostel",
+    Museum = "Museum",
+    Shop = "Shop",
+    Gastronomie = "Gastronomie",
+    Einzelhandel = "Einzelhandel",
 }

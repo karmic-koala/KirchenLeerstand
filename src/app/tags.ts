@@ -8,10 +8,11 @@ export enum Tags {
     ZielgruppeKinder = "Zielgruppe Kinder",
     ZielgruppeJungeErwachsene = "Zielgruppe junge Erwachsene",
     Eingeschossig = "Eingeschossig",
-    Mehrgeschossig = "Mehrgeschossig",
+    Geschossuebergreifend = "Geschossuebergreifend",
     Stapelbar = "Stapelbar",
     CashCow = "Cash Cow",
     Rentabel = "Rentabel",
+    Selbsttragend = "Selbsttragend",
     Finanzierungsbedarf = "Finanzierungsbedarf",
     KulturelleEinrichtung = "Kulturelle Einrichtung",
     Bildungseinrichtung = "Bildungseinrichtung",
@@ -25,5 +26,10 @@ export enum Tags {
     PublikumsMagnet = "Publikumsmagnet",
     KonstantesPublikum = "konstantes Publikum",
     KeinPublikum = "kein Publikum",
-    Konsumfrei = "Konsumfrei"
+    Konsumfrei = "Konsumfrei",
+    Gesundheit = "Gesundheit",
+    Begegnungsort = "Begegnungsort",
+    oekologisch = "oekologisch",
+
+
 }

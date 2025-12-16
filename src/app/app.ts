@@ -14,7 +14,8 @@ type AnliegendeNutzungenFormRaw = {
    altenheim: boolean | null;
    schwimmbad: boolean | null;
    sportplatz: boolean | null;
-   gruenflaeche: boolean | null;
+   parken: boolean | null;
+   industrie: boolean | null;
 };
 
 interface Utilization {
@@ -27,73 +28,79 @@ interface Utilization {
 }
 
 // Tags für die Nutzungen
-const tagsForTurnhalle = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.SportNutzung, Tags.Mehrgeschossig, Tags.Rentabel, Tags.ErfordertKeinLicht, Tags.KonstantesPublikum, Tags.ZielgruppeKinder];
-const tagsForKletterhalle = [Tags.Innenraum, Tags.RepraesentativStadt, Tags.SportNutzung, Tags.ErfordertKeinLicht, Tags.ZielgruppeKinder, Tags.ZielgruppeJungeErwachsene, Tags.Mehrgeschossig, Tags.Rentabel, Tags.PublikumsMagnet, Tags.Konsumfrei];
-const tagsForHallenbad = [Tags.Innenraum, Tags.RepraesentativStadt, Tags.SportNutzung, Tags.ErfordertKeinLicht, Tags.Mehrgeschossig, Tags.Finanzierungsbedarf, Tags.PublikumsMagnet, Tags.ZielgruppeKinder, Tags.ZielgruppeSenioren];
-const tagsForIndoorSpielplatz = [Tags.Innenraum, Tags.ZielgruppeKinder, Tags.Rentabel, Tags.ErfordertKeinLicht, Tags.PublikumsMagnet, Tags.Mehrgeschossig];
-const tagsForTanzschule = [Tags.Innenraum, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.Stapelbar, Tags.Rentabel, Tags.KonstantesPublikum, Tags.SportNutzung, Tags.KulturelleEinrichtung, Tags.ZielgruppeKinder, Tags.ZielgruppeJungeErwachsene];
-const tagsForMusikschule = [Tags.Innenraum, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.Stapelbar, Tags.Rentabel, Tags.KonstantesPublikum, Tags.Bildungseinrichtung, Tags.KulturelleEinrichtung, Tags.ZielgruppeKinder, Tags.ZielgruppeJungeErwachsene];
-const tagsForAtelier = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.Stapelbar, Tags.KulturelleEinrichtung, Tags.Finanzierungsbedarf, Tags.KonstantesPublikum, Tags.Konsumfrei];
-const tagsForRepaircafe = [Tags.Innenraum, Tags.RepraesentativQuartier, Tags.SozialeEinrichtung, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.Finanzierungsbedarf, Tags.KonstantesPublikum, Tags.Konsumfrei];
-const tagsForSozialcafe = [Tags.Innenraum, Tags.RepraesentativQuartier, Tags.SozialeEinrichtung, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.Finanzierungsbedarf, Tags.KonstantesPublikum, Tags.Konsumfrei];
+const tagsForTurnhalle = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.SportNutzung, Tags.Geschossuebergreifend, Tags.Rentabel, Tags.ErfordertKeinLicht, Tags.KonstantesPublikum, Tags.ZielgruppeKinder, Tags.ZielgruppeJungeErwachsene, Tags.Gesundheit];
+const tagsForKletterhalle = [Tags.Innenraum, Tags.RepraesentativStadt, Tags.SportNutzung, Tags.ErfordertKeinLicht, Tags.ZielgruppeKinder, Tags.ZielgruppeJungeErwachsene, Tags.Geschossuebergreifend, Tags.Rentabel, Tags.PublikumsMagnet, Tags.Konsumfrei];
+const tagsForHallenbad = [Tags.Innenraum, Tags.RepraesentativStadt, Tags.SportNutzung, Tags.ErfordertKeinLicht, Tags.Geschossuebergreifend, Tags.Finanzierungsbedarf, Tags.PublikumsMagnet, Tags.ZielgruppeKinder, Tags.ZielgruppeSenioren, Tags.Gesundheit];
+const tagsForIndoorSpielplatz = [Tags.Innenraum, Tags.ZielgruppeKinder, Tags.Rentabel, Tags.ErfordertKeinLicht, Tags.PublikumsMagnet, Tags.Geschossuebergreifend, Tags.Begegnungsort];
+const tagsForTanzschule = [Tags.Innenraum, Tags.ErfordertLicht, Tags.Stapelbar, Tags.Rentabel, Tags.KonstantesPublikum, Tags.SportNutzung, Tags.KulturelleEinrichtung, Tags.ZielgruppeKinder, Tags.ZielgruppeJungeErwachsene];
+const tagsForMusikschule = [Tags.Innenraum, Tags.ErfordertLicht, Tags.Stapelbar, Tags.Rentabel, Tags.KonstantesPublikum, Tags.Bildungseinrichtung, Tags.KulturelleEinrichtung, Tags.ZielgruppeKinder, Tags.ZielgruppeJungeErwachsene];
+const tagsForAtelier = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.KulturelleEinrichtung, Tags.Finanzierungsbedarf, Tags.PublikumsMagnet, Tags.Konsumfrei, Tags.Begegnungsort];
+const tagsForRepaircafe = [Tags.Innenraum, Tags.RepraesentativQuartier, Tags.SozialeEinrichtung, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.Finanzierungsbedarf, Tags.PublikumsMagnet, Tags.Konsumfrei, Tags.Begegnungsort];
+const tagsForSozialcafe = [Tags.Innenraum, Tags.RepraesentativQuartier, Tags.SozialeEinrichtung, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.Finanzierungsbedarf, Tags.PublikumsMagnet, Tags.Konsumfrei];
 const tagsForJugendtreff = [Tags.Innenraum, Tags.RepraesentativQuartier, Tags.SozialeEinrichtung, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.Finanzierungsbedarf, Tags.PublikumsMagnet, Tags.ZielgruppeJungeErwachsene, Tags.ZielgruppeKinder, Tags.Konsumfrei];
-const tagsForSozialhotel = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.SozialeEinrichtung, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.Stapelbar, Tags.Finanzierungsbedarf, Tags.KonstantesPublikum];
-const tagsForASZ = [Tags.Innenraum, Tags.RepraesentativQuartier, Tags.SozialeEinrichtung, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.Stapelbar, Tags.Finanzierungsbedarf, Tags.KonstantesPublikum, Tags.ZielgruppeSenioren, Tags.Konsumfrei];
-const tagsForGemeindezentrum = [Tags.Innenraum, Tags.RepraesentativQuartier, Tags.SozialeEinrichtung, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.Finanzierungsbedarf, Tags.PublikumsMagnet, Tags.Konsumfrei];
-const tagsForSozialkaufhaus = [Tags.Innenraum, Tags.SozialeEinrichtung, Tags.ErfordertKeinLicht, Tags.Eingeschossig, Tags.Stapelbar, Tags.Rentabel, Tags.KonstantesPublikum];
-const tagsForVereinszentrum = [Tags.Innenraum, Tags.RepraesentativQuartier, Tags.SozialeEinrichtung, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.Finanzierungsbedarf, Tags.KonstantesPublikum, Tags.Konsumfrei];
-const tagsForLernUndLeseort = [Tags.Innenraum, Tags.RepraesentativQuartier, Tags.Bildungseinrichtung, Tags.SozialeEinrichtung, Tags.ErfordertLicht, Tags.Finanzierungsbedarf, Tags.KonstantesPublikum, Tags.Konsumfrei, Tags.ZielgruppeKinder, Tags.ZielgruppeJungeErwachsene];
-const tagsForBibliothek = [Tags.Innenraum, Tags.RepraesentativStadt, Tags.Bildungseinrichtung, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.Stapelbar, Tags.PublikumsMagnet, Tags.ZielgruppeKinder, Tags.ZielgruppeJungeErwachsene, Tags.ZielgruppeSenioren];
-const tagsForNachbarschaftsrestaurant = [Tags.Innenraum, Tags.RepraesentativQuartier, Tags.SozialeEinrichtung, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.Rentabel, Tags.PublikumsMagnet];
-const tagsForVeranstaltungssraum = [Tags.Innenraum, Tags.RepraesentativStadt, Tags.KulturelleEinrichtung, Tags.ErfordertKeinLicht, Tags.Mehrgeschossig, Tags.Rentabel, Tags.PublikumsMagnet];
-const tagsForCoWorkingSpace = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.Stapelbar, Tags.KonstantesPublikum];
-const tagsForOffenReligioesesZentrum = [Tags.Innenraum, Tags.RepraesentativStadt, Tags.KulturelleEinrichtung, Tags.ErfordertLicht, Tags.Mehrgeschossig, Tags.Finanzierungsbedarf, Tags.PublikumsMagnet, Tags.Konsumfrei];
-const tagsForStadtpark = [Tags.Aussenraum, Tags.RepraesentativQuartier, Tags.Finanzierungsbedarf, Tags.PublikumsMagnet, Tags.Konsumfrei];
-const tagsForGemeinschaftsgarten = [Tags.Aussenraum, Tags.RepraesentativQuartier, Tags.KonstantesPublikum, Tags.Konsumfrei];
-const tagsForSpielplatz = [Tags.Aussenraum, Tags.RepraesentativQuartier, Tags.Finanzierungsbedarf, Tags.PublikumsMagnet, Tags.Konsumfrei, Tags.ZielgruppeKinder];
-const tagsForMarktplatz = [Tags.Aussenraum, Tags.RepraesentativQuartier, Tags.Rentabel, Tags.PublikumsMagnet];
-const tagsFürFreibad = [Tags.Aussenraum, Tags.RepraesentativStadt, Tags.SportNutzung, Tags.Finanzierungsbedarf, Tags.ZielgruppeJungeErwachsene, Tags.ZielgruppeKinder, Tags.PublikumsMagnet];
-const tagsForSportplatz = [Tags.Aussenraum, Tags.nichtRepraesentativ, Tags.SportNutzung, Tags.KonstantesPublikum, Tags.Konsumfrei, Tags.ZielgruppeKinder, Tags.ZielgruppeJungeErwachsene];
-const tagsForTennisplatz = [Tags.Aussenraum, Tags.nichtRepraesentativ, Tags.SportNutzung, Tags.KonstantesPublikum, Tags.Rentabel];
-const tagsForWohnenFrauenAlleinerziehende = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.Wohnraumnutzung, Tags.SozialeEinrichtung, Tags.Finanzierungsbedarf, Tags.ZielgruppeKinder, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.Stapelbar];
-const tagsForWohnenJugendliche = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.Wohnraumnutzung, Tags.SozialeEinrichtung, Tags.Finanzierungsbedarf, Tags.ZielgruppeJungeErwachsene, Tags.ZielgruppeKinder, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.Stapelbar];
-const tagsForBetreutesWohnen = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.Wohnraumnutzung, Tags.SozialeEinrichtung, Tags.Finanzierungsbedarf, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.Stapelbar];
-const tagsForCoHousing = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.Wohnraumnutzung, Tags.Rentabel, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.Stapelbar];
-const tagsForWohnungslosenunterkunft = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.Wohnraumnutzung, Tags.SozialeEinrichtung, Tags.Finanzierungsbedarf, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.Stapelbar];
-const tagsForGefluechtetenunterkunft = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.Wohnraumnutzung, Tags.SozialeEinrichtung, Tags.Finanzierungsbedarf, Tags.ZielgruppeJungeErwachsene, Tags.ZielgruppeKinder, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.Stapelbar];
-const tagsForMehrgenerationenwohnen = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.Wohnraumnutzung, Tags.Rentabel, Tags.ZielgruppeJungeErwachsene, Tags.ZielgruppeSenioren, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.Stapelbar];
-const tagsForGemeinschaftlichesAlterswohen = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.Wohnraumnutzung, Tags.SozialeEinrichtung, Tags.Rentabel, Tags.ZielgruppeSenioren, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.Stapelbar];
-const tagsForKita = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.ZielgruppeKinder, Tags.Bildungseinrichtung, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.KonstantesPublikum];
-const tagsForOGS = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.ZielgruppeKinder, Tags.Bildungseinrichtung, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.KonstantesPublikum];
-const tagsForUnigebaeude = [Tags.Innenraum, Tags.RepraesentativStadt, Tags.ZielgruppeJungeErwachsene, Tags.Bildungseinrichtung, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.Stapelbar, Tags.KonstantesPublikum];
-const tagsForVerwaltungsgebeaude = [Tags.Innenraum, Tags.RepraesentativStadt, Tags.Infrastruktur, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.Stapelbar, Tags.PublikumsMagnet];
-const tagsForErweiterungSchule = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.ZielgruppeKinder, Tags.Bildungseinrichtung, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.Stapelbar, Tags.KonstantesPublikum];
-const tagsForErweiterungAltenheim = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.ZielgruppeSenioren, Tags.Wohnraumnutzung, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.Stapelbar, Tags.KonstantesPublikum];
-const tagsForVHS = [Tags.Innenraum, Tags.RepraesentativStadt, Tags.Bildungseinrichtung, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.Stapelbar, Tags.KonstantesPublikum];
-const tagsForTheater = [Tags.Innenraum, Tags.RepraesentativStadt, Tags.KulturelleEinrichtung, Tags.ErfordertKeinLicht, Tags.Mehrgeschossig, Tags.Rentabel, Tags.PublikumsMagnet];
-const tagsForKonzertsaal = [Tags.Innenraum, Tags.RepraesentativStadt, Tags.KulturelleEinrichtung, Tags.ErfordertKeinLicht, Tags.Mehrgeschossig, Tags.Rentabel, Tags.PublikumsMagnet];
-const tagsForClub = [Tags.Innenraum, Tags.RepraesentativStadt, Tags.ZielgruppeJungeErwachsene, Tags.KulturelleEinrichtung, Tags.ErfordertKeinLicht, Tags.Mehrgeschossig, Tags.Rentabel, Tags.PublikumsMagnet];
-const tagsForAusstellungsraum = [Tags.Innenraum, Tags.RepraesentativStadt, Tags.KulturelleEinrichtung, Tags.ErfordertLicht, Tags.Mehrgeschossig, Tags.Eingeschossig, Tags.Stapelbar, Tags.Rentabel, Tags.PublikumsMagnet];
-const tagsForKolumbarium = [Tags.Innenraum, Tags.RepraesentativStadt, Tags.KulturelleEinrichtung, Tags.ErfordertKeinLicht, Tags.Mehrgeschossig, Tags.Finanzierungsbedarf, Tags.KonstantesPublikum, Tags.Konsumfrei, Tags.ZielgruppeSenioren];
+const tagsForSozialhotel = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.SozialeEinrichtung, Tags.ErfordertLicht, Tags.Stapelbar, Tags.Finanzierungsbedarf, Tags.KonstantesPublikum];
+const tagsForASZ = [Tags.Innenraum, Tags.RepraesentativQuartier, Tags.SozialeEinrichtung, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.Finanzierungsbedarf, Tags.KonstantesPublikum, Tags.ZielgruppeSenioren, Tags.Konsumfrei, Tags.Begegnungsort];
+const tagsForGemeindezentrum = [Tags.Innenraum, Tags.RepraesentativQuartier, Tags.SozialeEinrichtung, Tags.ErfordertLicht, Tags.Geschossuebergreifend, Tags.Finanzierungsbedarf, Tags.PublikumsMagnet, Tags.Konsumfrei, Tags.Begegnungsort];
+const tagsForSozialkaufhaus = [Tags.Innenraum, Tags.SozialeEinrichtung, Tags.ErfordertKeinLicht, Tags.Geschossuebergreifend, Tags.Stapelbar, Tags.Selbsttragend, Tags.KonstantesPublikum];
+const tagsForVereinszentrum = [Tags.Innenraum, Tags.RepraesentativQuartier, Tags.SozialeEinrichtung, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.Selbsttragend, Tags.KonstantesPublikum, Tags.Konsumfrei, Tags.Begegnungsort];
+const tagsForLernUndLeseort = [Tags.Innenraum, Tags.RepraesentativQuartier, Tags.Bildungseinrichtung, Tags.SozialeEinrichtung, Tags.ErfordertLicht, Tags.Finanzierungsbedarf, Tags.KonstantesPublikum, Tags.Konsumfrei, Tags.ZielgruppeKinder, Tags.ZielgruppeJungeErwachsene, Tags.Begegnungsort];
+const tagsForBibliothek = [Tags.Innenraum, Tags.RepraesentativStadt, Tags.Bildungseinrichtung, Tags.ErfordertLicht, Tags.Stapelbar, Tags.PublikumsMagnet, Tags.ZielgruppeKinder, Tags.ZielgruppeJungeErwachsene, Tags.ZielgruppeSenioren, Tags.Finanzierungsbedarf];
+const tagsForNachbarschaftsrestaurant = [Tags.Innenraum, Tags.RepraesentativQuartier, Tags.SozialeEinrichtung, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.Rentabel, Tags.PublikumsMagnet, Tags.Begegnungsort];
+const tagsForVeranstaltungssraum = [Tags.Innenraum, Tags.RepraesentativStadt, Tags.KulturelleEinrichtung, Tags.ErfordertKeinLicht, Tags.Geschossuebergreifend, Tags.Rentabel, Tags.PublikumsMagnet];
+const tagsForCoWorkingSpace = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.KonstantesPublikum, Tags.Rentabel];
+const tagsForOffenReligioesesZentrum = [Tags.Innenraum, Tags.RepraesentativStadt, Tags.KulturelleEinrichtung, Tags.ErfordertLicht, Tags.Geschossuebergreifend, Tags.Finanzierungsbedarf, Tags.PublikumsMagnet, Tags.Konsumfrei, Tags.Begegnungsort];
+const tagsForStadtpark = [Tags.Aussenraum, Tags.RepraesentativQuartier, Tags.Finanzierungsbedarf, Tags.PublikumsMagnet, Tags.Konsumfrei, Tags.Begegnungsort];
+const tagsForGemeinschaftsgarten = [Tags.Aussenraum, Tags.RepraesentativQuartier, Tags.KonstantesPublikum, Tags.Konsumfrei, Tags.Begegnungsort, Tags.Selbsttragend];
+const tagsForSpielplatz = [Tags.Aussenraum, Tags.RepraesentativQuartier, Tags.Finanzierungsbedarf, Tags.PublikumsMagnet, Tags.Konsumfrei, Tags.ZielgruppeKinder, Tags.Begegnungsort];
+const tagsForMarktplatz = [Tags.Aussenraum, Tags.RepraesentativQuartier, Tags.Rentabel, Tags.PublikumsMagnet, Tags.Begegnungsort];
+const tagsFürFreibad = [Tags.Aussenraum, Tags.RepraesentativStadt, Tags.SportNutzung, Tags.Finanzierungsbedarf, Tags.ZielgruppeJungeErwachsene, Tags.ZielgruppeKinder, Tags.PublikumsMagnet, Tags.Gesundheit, Tags.Begegnungsort];
+const tagsForSportplatz = [Tags.Aussenraum, Tags.nichtRepraesentativ, Tags.SportNutzung, Tags.KonstantesPublikum, Tags.Konsumfrei, Tags.ZielgruppeKinder, Tags.ZielgruppeJungeErwachsene, Tags.Gesundheit, Tags.Finanzierungsbedarf];
+const tagsForTennisplatz = [Tags.Aussenraum, Tags.nichtRepraesentativ, Tags.SportNutzung, Tags.KonstantesPublikum, Tags.Rentabel, Tags.ZielgruppeJungeErwachsene, Tags.ZielgruppeSenioren, Tags.Gesundheit];
+const tagsForWohnenFrauenAlleinerziehende = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.Wohnraumnutzung, Tags.SozialeEinrichtung, Tags.Finanzierungsbedarf, Tags.ZielgruppeKinder, Tags.ErfordertLicht, Tags.Stapelbar];
+const tagsForWohnenJugendliche = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.Wohnraumnutzung, Tags.SozialeEinrichtung, Tags.Finanzierungsbedarf, Tags.ZielgruppeJungeErwachsene, Tags.ZielgruppeKinder, Tags.ErfordertLicht, Tags.Stapelbar];
+const tagsForBetreutesWohnen = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.Wohnraumnutzung, Tags.SozialeEinrichtung, Tags.Selbsttragend, Tags.ErfordertLicht, Tags.Stapelbar];
+const tagsForCoHousing = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.Wohnraumnutzung, Tags.Rentabel, Tags.ErfordertLicht, Tags.Begegnungsort, Tags.Stapelbar, Tags.ZielgruppeJungeErwachsene, Tags.ZielgruppeSenioren];
+const tagsForWohnungslosenunterkunft = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.Wohnraumnutzung, Tags.SozialeEinrichtung, Tags.Finanzierungsbedarf, Tags.ErfordertLicht, Tags.Stapelbar];
+const tagsForGefluechtetenunterkunft = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.Wohnraumnutzung, Tags.SozialeEinrichtung, Tags.Finanzierungsbedarf, Tags.ZielgruppeJungeErwachsene, Tags.ZielgruppeKinder, Tags.ErfordertLicht, Tags.Stapelbar];
+const tagsForMehrgenerationenwohnen = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.Wohnraumnutzung, Tags.Rentabel, Tags.ZielgruppeJungeErwachsene, Tags.ZielgruppeSenioren, Tags.ErfordertLicht, Tags.Stapelbar];
+const tagsForGemeinschaftlichesAlterswohen = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.Wohnraumnutzung, Tags.SozialeEinrichtung, Tags.Rentabel, Tags.ZielgruppeSenioren, Tags.ErfordertLicht, Tags.Stapelbar];
+const tagsForKita = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.ZielgruppeKinder, Tags.Bildungseinrichtung, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.KonstantesPublikum, Tags.Selbsttragend];
+const tagsForOGS = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.ZielgruppeKinder, Tags.Bildungseinrichtung, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.KonstantesPublikum, Tags.Selbsttragend];
+const tagsForUnigebaeude = [Tags.Innenraum, Tags.RepraesentativStadt, Tags.ZielgruppeJungeErwachsene, Tags.Bildungseinrichtung, Tags.ErfordertLicht, Tags.Finanzierungsbedarf, Tags.Stapelbar, Tags.KonstantesPublikum];
+const tagsForVerwaltungsgebeaude = [Tags.Innenraum, Tags.RepraesentativStadt, Tags.Infrastruktur, Tags.ErfordertLicht, Tags.Stapelbar, Tags.PublikumsMagnet];
+const tagsForErweiterungSchule = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.ZielgruppeKinder, Tags.Bildungseinrichtung, Tags.ErfordertLicht, Tags.Stapelbar, Tags.KonstantesPublikum];
+const tagsForErweiterungAltenheim = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.ZielgruppeSenioren, Tags.Wohnraumnutzung, Tags.ErfordertLicht, Tags.Stapelbar, Tags.KonstantesPublikum, Tags.Rentabel];
+const tagsForVHS = [Tags.Innenraum, Tags.RepraesentativStadt, Tags.Bildungseinrichtung, Tags.ErfordertLicht, Tags.Selbsttragend, Tags.Stapelbar, Tags.KonstantesPublikum];
+const tagsForTheater = [Tags.Innenraum, Tags.RepraesentativStadt, Tags.KulturelleEinrichtung, Tags.ErfordertKeinLicht, Tags.Geschossuebergreifend, Tags.Selbsttragend, Tags.PublikumsMagnet];
+const tagsForKonzertsaal = [Tags.Innenraum, Tags.RepraesentativStadt, Tags.KulturelleEinrichtung, Tags.ErfordertKeinLicht, Tags.Geschossuebergreifend, Tags.Rentabel, Tags.PublikumsMagnet];
+const tagsForClub = [Tags.Innenraum, Tags.RepraesentativStadt, Tags.ZielgruppeJungeErwachsene, Tags.KulturelleEinrichtung, Tags.ErfordertKeinLicht, Tags.Geschossuebergreifend, Tags.Rentabel, Tags.PublikumsMagnet];
+const tagsForAusstellungsraum = [Tags.Innenraum, Tags.RepraesentativStadt, Tags.KulturelleEinrichtung, Tags.ErfordertLicht, Tags.Geschossuebergreifend, Tags.Eingeschossig, Tags.Stapelbar, Tags.Rentabel, Tags.PublikumsMagnet];
+const tagsForKolumbarium = [Tags.Innenraum, Tags.RepraesentativStadt, Tags.KulturelleEinrichtung, Tags.ErfordertKeinLicht, Tags.Geschossuebergreifend, Tags.Selbsttragend, Tags.KonstantesPublikum, Tags.Konsumfrei, Tags.ZielgruppeSenioren, Tags.Begegnungsort];
 const tagsForTafel = [Tags.Innenraum, Tags.RepraesentativQuartier, Tags.SozialeEinrichtung, Tags.ErfordertKeinLicht, Tags.Eingeschossig, Tags.Finanzierungsbedarf, Tags.KonstantesPublikum, Tags.Konsumfrei];
-const tagsForStudiUndAzubiWohnheim = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.Wohnraumnutzung, Tags.Finanzierungsbedarf, Tags.ZielgruppeJungeErwachsene, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.Stapelbar];
-const tagsForGesundheitskiosk = [Tags.Innenraum, Tags.RepraesentativQuartier, Tags.SozialeEinrichtung, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.Finanzierungsbedarf, Tags.KonstantesPublikum, Tags.Konsumfrei];
-const tagsForEissportfläche = [Tags.RepraesentativStadt, Tags.SportNutzung, Tags.ErfordertKeinLicht, Tags.Finanzierungsbedarf, Tags.PublikumsMagnet];
-const tagsForAmphitheater = [Tags.Aussenraum, Tags.RepraesentativStadt, Tags.KulturelleEinrichtung, Tags.Rentabel, Tags.PublikumsMagnet];
-const tagsForRecyclingZentrum = [Tags.nichtRepraesentativ, Tags.Infrastruktur, Tags.Rentabel, Tags.Mehrgeschossig, Tags.KonstantesPublikum];
-const tagsForHandwerkshof = [Tags.nichtRepraesentativ, Tags.IndustrieUndHandel, Tags.Rentabel, Tags.Mehrgeschossig, Tags.KonstantesPublikum];
-const tagsForProduktionshalle = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.IndustrieUndHandel, Tags.CashCow, Tags.Mehrgeschossig, Tags.ErfordertKeinLicht, Tags.KeinPublikum];
-const tagsForGrossmarkthalle = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.IndustrieUndHandel, Tags.CashCow, Tags.Mehrgeschossig, Tags.ErfordertKeinLicht, Tags.KonstantesPublikum];
-const tagsForLagerhalle = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.IndustrieUndHandel, Tags.CashCow, Tags.Mehrgeschossig, Tags.ErfordertKeinLicht, Tags.KeinPublikum];
-const tagsForBaumarkt = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.IndustrieUndHandel, Tags.CashCow, Tags.Mehrgeschossig, Tags.ErfordertKeinLicht, Tags.PublikumsMagnet];
-const tagsForGartencenter = [Tags.nichtRepraesentativ, Tags.IndustrieUndHandel, Tags.CashCow, Tags.Mehrgeschossig, Tags.ErfordertLicht, Tags.PublikumsMagnet];
-const tagsForMoebelhaus = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.IndustrieUndHandel, Tags.CashCow, Tags.Mehrgeschossig, Tags.ErfordertKeinLicht, Tags.PublikumsMagnet];
+const tagsForStudiUndAzubiWohnheim = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.Wohnraumnutzung, Tags.Finanzierungsbedarf, Tags.ZielgruppeJungeErwachsene, Tags.ErfordertLicht, Tags.Stapelbar];
+const tagsForGesundheitskiosk = [Tags.Innenraum, Tags.RepraesentativQuartier, Tags.SozialeEinrichtung, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.Finanzierungsbedarf, Tags.KonstantesPublikum, Tags.Konsumfrei, Tags.Gesundheit];
+const tagsForEissportfläche = [Tags.RepraesentativStadt, Tags.SportNutzung, Tags.ErfordertKeinLicht, Tags.Selbsttragend, Tags.PublikumsMagnet];
+const tagsForAmphitheater = [Tags.Aussenraum, Tags.RepraesentativStadt, Tags.KulturelleEinrichtung, Tags.Rentabel, Tags.PublikumsMagnet, Tags.Begegnungsort];
+const tagsForRecyclingZentrum = [Tags.nichtRepraesentativ, Tags.Infrastruktur, Tags.Rentabel, Tags.Geschossuebergreifend, Tags.KonstantesPublikum];
+const tagsForHandwerkshof = [Tags.nichtRepraesentativ, Tags.IndustrieUndHandel, Tags.Rentabel, Tags.Geschossuebergreifend, Tags.Stapelbar, Tags.KonstantesPublikum];
+const tagsForProduktionshalle = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.IndustrieUndHandel, Tags.CashCow, Tags.Geschossuebergreifend, Tags.ErfordertKeinLicht, Tags.KeinPublikum];
+const tagsForGrossmarkthalle = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.IndustrieUndHandel, Tags.CashCow, Tags.Geschossuebergreifend, Tags.ErfordertKeinLicht, Tags.KonstantesPublikum];
+const tagsForLagerhalle = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.IndustrieUndHandel, Tags.CashCow, Tags.Geschossuebergreifend, Tags.ErfordertKeinLicht, Tags.KeinPublikum];
+const tagsForBaumarkt = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.IndustrieUndHandel, Tags.CashCow, Tags.Geschossuebergreifend, Tags.ErfordertKeinLicht, Tags.PublikumsMagnet];
+const tagsForGartencenter = [Tags.nichtRepraesentativ, Tags.IndustrieUndHandel, Tags.CashCow, Tags.Geschossuebergreifend, Tags.ErfordertLicht, Tags.PublikumsMagnet];
+const tagsForMoebelhaus = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.IndustrieUndHandel, Tags.CashCow, Tags.Geschossuebergreifend, Tags.ErfordertKeinLicht, Tags.PublikumsMagnet];
 const tagsForRechenzentrum = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.Infrastruktur, Tags.CashCow, Tags.ErfordertKeinLicht, Tags.Eingeschossig, Tags.Stapelbar, Tags.KeinPublikum];
 const tagsForStorageSpace = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.Infrastruktur, Tags.CashCow, Tags.ErfordertKeinLicht, Tags.Eingeschossig, Tags.Stapelbar, Tags.KeinPublikum];
-const tagsForHeizkraftwerk = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.Infrastruktur, Tags.CashCow, Tags.ErfordertKeinLicht, Tags.Mehrgeschossig, Tags.KeinPublikum];
-const tagsForWaermepumpe = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.Infrastruktur, Tags.CashCow, Tags.ErfordertKeinLicht, Tags.Mehrgeschossig, Tags.KeinPublikum];
-const tagsForBatteriespeicher = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.Infrastruktur, Tags.CashCow, Tags.ErfordertKeinLicht, Tags.Mehrgeschossig, Tags.KeinPublikum];
+const tagsForHeizkraftwerk = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.Infrastruktur, Tags.CashCow, Tags.ErfordertKeinLicht, Tags.Geschossuebergreifend, Tags.KeinPublikum];
+const tagsForWaermepumpe = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.Infrastruktur, Tags.CashCow, Tags.ErfordertKeinLicht, Tags.Geschossuebergreifend, Tags.KeinPublikum];
+const tagsForBatteriespeicher = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.Infrastruktur, Tags.CashCow, Tags.ErfordertKeinLicht, Tags.Geschossuebergreifend, Tags.KeinPublikum];
 const tagsForMobilityHub = [Tags.Innenraum, Tags.RepraesentativStadt, Tags.Infrastruktur, Tags.Rentabel, Tags.ErfordertKeinLicht, Tags.Eingeschossig, Tags.Stapelbar, Tags.PublikumsMagnet];
+const tagsForSupermarkt = [Tags.Innenraum, Tags.CashCow, Tags.nichtRepraesentativ, Tags.IndustrieUndHandel, Tags.PublikumsMagnet, Tags.Geschossuebergreifend, Tags.ErfordertKeinLicht];
+const tagsForHotel = [Tags.Innenraum, Tags.CashCow, Tags.nichtRepraesentativ, Tags.KonstantesPublikum, Tags.Stapelbar, Tags.ErfordertLicht];
+const tagsForHostel = [Tags.Innenraum, Tags.Rentabel, Tags.nichtRepraesentativ, Tags.KonstantesPublikum, Tags.Stapelbar, Tags.ErfordertLicht, Tags.ZielgruppeJungeErwachsene];
+const tagsForMuseum = [Tags.Innenraum, Tags.Rentabel, Tags.RepraesentativStadt, Tags.PublikumsMagnet, Tags.Geschossuebergreifend, Tags.Stapelbar, Tags.KulturelleEinrichtung];
+const tagsForGastro = [Tags.Innenraum, Tags.Rentabel, Tags.RepraesentativQuartier, Tags.PublikumsMagnet, Tags.Eingeschossig, Tags.Begegnungsort];
+const tagsForEinzelhandel = [Tags.Innenraum, Tags.Rentabel, Tags.nichtRepraesentativ, Tags.PublikumsMagnet, Tags.Eingeschossig, Tags.IndustrieUndHandel];
 @Component({
   selector: 'app-root',
   templateUrl: './app.html',
@@ -114,7 +121,8 @@ export class App {
       altenheim: new FormControl(false, Validators.required),
       schwimmbad: new FormControl(false, Validators.required),
       sportplatz: new FormControl(false, Validators.required),
-      gruenflaeche: new FormControl(false, Validators.required)
+      parken: new FormControl(false, Validators.required),
+      industrie: new FormControl(false, Validators.required)
     }),  
     entrance: new FormControl('', Validators.required),
     type: new FormControl('', Validators.required),
@@ -126,6 +134,8 @@ export class App {
     poverty: new FormControl('', Validators.required),
     stability: new FormControl('', Validators.required),
     migration: new FormControl('', Validators.required), 
+    size: new FormControl('', Validators.required), 
+    floor: new FormControl('', Validators.required), 
   });
 
 
@@ -202,6 +212,12 @@ export class App {
     this.utilizations.push({type: Types.both, tags: tagsForWaermepumpe, prio: 0, strike: false, label: Utilizations.Waermepumpenstandort});
     this.utilizations.push({type: Types.both, tags: tagsForBatteriespeicher, prio: 0, strike: false, label: Utilizations.Batteriespeicher});
     this.utilizations.push({type: Types.both, tags: tagsForMobilityHub, prio: 0, strike: false, label: Utilizations.MobilityHub});
+    this.utilizations.push({type: Types.main, tags: tagsForSupermarkt, prio: 0, strike: false, label: Utilizations.Supermarkt});
+    this.utilizations.push({type: Types.main, tags: tagsForHotel, prio: 0, strike: false, label: Utilizations.Hotel});
+    this.utilizations.push({type: Types.main, tags: tagsForHostel, prio: 0, strike: false, label: Utilizations.Hostel});
+    this.utilizations.push({type: Types.both, tags: tagsForMuseum, prio: 0, strike: false, label: Utilizations.Museum, secondaryLabel: Utilizations.Shop});
+    this.utilizations.push({type: Types.secondary, tags: tagsForGastro, prio: 0, strike: false, label: Utilizations.Gastronomie});
+    this.utilizations.push({type: Types.secondary, tags: tagsForEinzelhandel, prio: 0, strike: false, label: Utilizations.Einzelhandel});
   }
 
   calcUtilizations(){
@@ -211,8 +227,9 @@ export class App {
     this.processEingang(this.statistik.value.entrance);
     this.processBautyp(this.statistik.value.type);
     this.processDenkmalschutz(this.statistik.value.protection);
+    this.processBoden(this.statistik.value.floor);
     this.processBausubstanz(this.statistik.value.bausubstanz);
-
+    this.processGroesse(this.statistik.value.size);
     this.processArmutsquotient(this.statistik.value.poverty);
     this.processNachbarschaft(this.statistik.value.stability);
     this.processMigrationshintergrund(this.statistik.value.migration);
@@ -266,6 +283,8 @@ export class App {
         this.changePrioOfTag(Tags.PublikumsMagnet, 1);
         this.changePrioOfTag(Tags.SozialeEinrichtung, 1);
         this.changePrioOfTag(Tags.SportNutzung, 1);
+        this.changePrioOfTag(Tags.Begegnungsort, 1);
+        this.changePrioOfTag(Tags.Gesundheit, 1);
 
         this.strikeTag(Tags.nichtRepraesentativ);
         this.strikeTag(Tags.KeinPublikum);
@@ -279,6 +298,8 @@ export class App {
         this.changePrioOfTag(Tags.PublikumsMagnet, 1);
         this.changePrioOfTag(Tags.SozialeEinrichtung, 1);
         this.changePrioOfTag(Tags.SportNutzung, 1);
+        this.changePrioOfTag(Tags.Begegnungsort, 1);
+        this.changePrioOfTag(Tags.Gesundheit, 1);
 
         this.strikeTag(Tags.nichtRepraesentativ);
         this.strikeTag(Tags.KeinPublikum);
@@ -313,25 +334,39 @@ export class App {
     } else{
       this.strikeUtilization(Utilizations.ErweiterungsbauSchule);
     }
-    
     if(selection.altenheim){
       this.changePrioOfTag(Tags.ZielgruppeSenioren, 1);
+      this.changePrioOfTag(Tags.Begegnungsort, 1);
+      this.changePrioOfTag(Tags.Gesundheit, 1);
       this.changePrioOfUtilization(Utilizations.ErweiterungsbauAltenheim, 1);
     } else{
       this.strikeUtilization(Utilizations.ErweiterungsbauAltenheim);
     }
-
     if(selection.schwimmbad){
       this.strikeUtilization(Utilizations.Freibad);
       this.strikeUtilization(Utilizations.Hallenbad);
       this.changePrioOfTag(Tags.SportNutzung, 1);
     } else{
     }
-
     if(selection.sportplatz){
     this.strikeUtilization(Utilizations.Sportplatz);
     this.strikeUtilization(Utilizations.Tennisplatz);
     this.changePrioOfTag(Tags.SportNutzung, 1);
+    } else{  
+    }
+    if(selection.parken){
+    } else{ 
+    this.strikeUtilization(Utilizations.Baumarkt);
+    this.strikeUtilization(Utilizations.Gartencenter);
+    this.strikeUtilization(Utilizations.Moebelhaus);
+    this.strikeUtilization(Utilizations.RecyclingZentrum);
+    this.strikeUtilization(Utilizations.Produktionshalle);
+    this.strikeUtilization(Utilizations.Grossmarkthalle);
+    this.strikeUtilization(Utilizations.Lagerhalle);
+    }
+    if(selection.industrie){
+    this.changePrioOfTag(Tags.IndustrieUndHandel, 1);
+    this.changePrioOfTag(Tags.Infrastruktur, 1);
     } else{  
     }
   }
@@ -364,6 +399,8 @@ export class App {
         this.changePrioOfUtilization(Utilizations.Gartencenter, 1);
         this.changePrioOfUtilization(Utilizations.Moebelhaus, 1);
         this.changePrioOfUtilization(Utilizations.MobilityHub, 1);
+        this.changePrioOfUtilization(Utilizations.Hotel, 1);
+        this.changePrioOfUtilization(Utilizations.Hostel, 1);
 
         this.changePrioOfTag(Tags.Wohnraumnutzung, 1);
 
@@ -375,8 +412,11 @@ export class App {
         this.changePrioOfUtilization(Utilizations.Tafel, 1);
         this.changePrioOfUtilization(Utilizations.Gemeinschaftsgarten, 1);
         this.changePrioOfUtilization(Utilizations.Spielplatz, 1);
+        this.changePrioOfUtilization(Utilizations.Einzelhandel, 1);
         
         this.changePrioOfUtilization(Utilizations.Sportplatz, -1);
+        this.changePrioOfUtilization(Utilizations.Supermarkt, -1);
+        this.changePrioOfUtilization(Utilizations.Museum, -1);
         this.changePrioOfUtilization(Utilizations.Tennisplatz, -1);
         this.changePrioOfUtilization(Utilizations.Theater, -1);
         this.changePrioOfUtilization(Utilizations.Konzertsaal, -1);
@@ -405,6 +445,7 @@ export class App {
         this.changePrioOfUtilization(Utilizations.Vereinszentrum, -1);
         this.changePrioOfUtilization(Utilizations.Nachbarschaftsrestaurant, -1);
         this.changePrioOfUtilization(Utilizations.Gesundheitskiosk, -1);
+        this.changePrioOfUtilization(Utilizations.Gastronomie, -1);
 
 
         //and so on
@@ -412,6 +453,8 @@ export class App {
 
       case "Seitlich":        
         this.changePrioOfUtilization(Utilizations.Sportplatz, 1);
+        this.changePrioOfUtilization(Utilizations.Supermarkt, 1);
+        this.changePrioOfUtilization(Utilizations.Museum, 1);
         this.changePrioOfUtilization(Utilizations.Tennisplatz, 1);
         this.changePrioOfUtilization(Utilizations.Theater, 1);
         this.changePrioOfUtilization(Utilizations.Konzertsaal, 1);
@@ -440,6 +483,7 @@ export class App {
         this.changePrioOfUtilization(Utilizations.Vereinszentrum, 1);
         this.changePrioOfUtilization(Utilizations.Nachbarschaftsrestaurant, 1);
         this.changePrioOfUtilization(Utilizations.Gesundheitskiosk, 1);
+        this.changePrioOfUtilization(Utilizations.Gastronomie, 1);
 
         this.changePrioOfUtilization(Utilizations.Kolumbarium, -1);
         this.changePrioOfUtilization(Utilizations.Club, -1);
@@ -463,6 +507,8 @@ export class App {
         this.changePrioOfUtilization(Utilizations.Gartencenter, -1);
         this.changePrioOfUtilization(Utilizations.Moebelhaus, -1);
         this.changePrioOfUtilization(Utilizations.MobilityHub, -1);
+        this.changePrioOfUtilization(Utilizations.Hotel, -1);
+        this.changePrioOfUtilization(Utilizations.Hostel, -1);
 
         this.changePrioOfTag(Tags.Wohnraumnutzung, -1);
 
@@ -474,6 +520,7 @@ export class App {
         this.changePrioOfUtilization(Utilizations.Tafel, -1);
         this.changePrioOfUtilization(Utilizations.Gemeinschaftsgarten, -1);
         this.changePrioOfUtilization(Utilizations.Spielplatz, -1);
+        this.changePrioOfUtilization(Utilizations.Einzelhandel, -1);
         break;
     }
   }
@@ -486,20 +533,62 @@ export class App {
         this.showSecondaryUtilization = true;
         this.changePrioOfTag(Tags.Eingeschossig, 1);
         this.changePrioOfTag(Tags.ErfordertLicht, 1);
-        this.changePrioOfTag(Tags.Mehrgeschossig, 1);
+        this.changePrioOfTag(Tags.Geschossuebergreifend, 1);
         break;
 
       case "Hallenkirche":
         this.showSecondaryUtilization = true;
         this.changePrioOfTag(Tags.Stapelbar, 1);      
         this.changePrioOfTag(Tags.ErfordertKeinLicht, 1);            
-        this.changePrioOfTag(Tags.Mehrgeschossig, 1);      
+        this.changePrioOfTag(Tags.Geschossuebergreifend, 1);      
         break;
 
       case "Saalkirche":        
         this.showSecondaryUtilization = false;
-        this.changePrioOfTag(Tags.Mehrgeschossig, 1);
+        this.changePrioOfTag(Tags.Geschossuebergreifend, 1);
         this.changePrioOfTag(Tags.Stapelbar, 1);
+        break;
+    }
+ }
+   processGroesse(selection: string | null | undefined) {
+    if(selection == null || selection == undefined){
+      return;
+    } 
+    switch ( selection ) {
+      case "Gross":
+        this.changePrioOfUtilization(Utilizations.Turnhalle, 1);
+        this.changePrioOfUtilization(Utilizations.Kletterhalle, 1);
+        this.changePrioOfUtilization(Utilizations.Sportplatz, 1);
+        this.changePrioOfUtilization(Utilizations.Tennisplatz, 1);
+        this.changePrioOfUtilization(Utilizations.Theater, 1);
+        this.changePrioOfUtilization(Utilizations.Konzertsaal, 1);
+        this.changePrioOfUtilization(Utilizations.Club, 1);
+        this.changePrioOfUtilization(Utilizations.Hallenbad, 1);
+        this.changePrioOfUtilization(Utilizations.Freibad, 1);
+        break;
+
+      case "Mittel":
+        this.changePrioOfUtilization(Utilizations.Hallenbad, 1);
+        this.changePrioOfUtilization(Utilizations.Freibad, 1);
+        this.changePrioOfUtilization(Utilizations.Tennisplatz, 1);     
+        this.changePrioOfUtilization(Utilizations.Club, 1);   
+        
+        this.strikeUtilization(Utilizations.Turnhalle);
+        this.strikeUtilization(Utilizations.Kletterhalle);
+        this.strikeUtilization(Utilizations.Sportplatz);
+        break;
+
+      case "Klein":        
+        this.strikeUtilization(Utilizations.Turnhalle);
+        this.strikeUtilization(Utilizations.Kletterhalle);
+        this.strikeUtilization(Utilizations.Sportplatz);
+        this.strikeUtilization(Utilizations.Tennisplatz);
+        this.strikeUtilization(Utilizations.Theater);
+        this.strikeUtilization(Utilizations.Konzertsaal);
+        this.strikeUtilization(Utilizations.Club);
+        this.strikeUtilization(Utilizations.Hallenbad);
+        this.strikeUtilization(Utilizations.Freibad);
+        this.strikeUtilization(Utilizations.Tennisplatz);
         break;
     }
  }
@@ -515,6 +604,7 @@ export class App {
         this.changePrioOfTag(Tags.PublikumsMagnet, 1);
         this.changePrioOfTag(Tags.SozialeEinrichtung, 1);
         this.changePrioOfTag(Tags.KulturelleEinrichtung, 1);
+        this.changePrioOfTag(Tags.Begegnungsort, 1);
 
         this.strikeTag(Tags.KeinPublikum);
         this.strikeTag(Tags.IndustrieUndHandel);
@@ -542,6 +632,26 @@ export class App {
       case "Nein": 
         this.changePrioOfTag(Tags.CashCow, 1);       
         this.changePrioOfTag(Tags.Rentabel, 1);       
+        break;
+    }
+  }
+  processBoden(selection: string | null | undefined) {
+    if(selection == null || selection == undefined){
+      return;
+    } 
+    switch ( selection ) {
+      case "Ja":
+        this.strikeUtilization(Utilizations.Hallenbad);
+        this.strikeUtilization(Utilizations.Freibad);
+        this.strikeUtilization(Utilizations.Baumarkt);
+        this.strikeUtilization(Utilizations.RecyclingZentrum);
+        this.strikeUtilization(Utilizations.Produktionshalle);
+        this.strikeUtilization(Utilizations.Grossmarkthalle);
+        this.strikeUtilization(Utilizations.Lagerhalle);
+        break;
+
+      case "Nein": 
+
         break;
     }
   }
@@ -624,6 +734,7 @@ export class App {
       this.changePrioOfTag(Tags.SozialeEinrichtung, 1);
       this.changePrioOfTag(Tags.Konsumfrei, 1);
       this.changePrioOfTag(Tags.Bildungseinrichtung, 1);
+      this.changePrioOfTag(Tags.Gesundheit, 1);
     }
     else {
       this.changePrioOfTag(Tags.Infrastruktur, 1);
@@ -642,6 +753,7 @@ export class App {
       this.changePrioOfTag(Tags.SozialeEinrichtung, 1);
       this.changePrioOfTag(Tags.RepraesentativQuartier, 1);
       this.changePrioOfTag(Tags.PublikumsMagnet, 1);
+      this.changePrioOfTag(Tags.Begegnungsort, 1);
     }
     else {
       this.changePrioOfTag(Tags.Infrastruktur, 1);
@@ -658,7 +770,10 @@ export class App {
     let quotientNumber = Number(quotient);
     if(quotientNumber >= 40){
       this.changePrioOfUtilization(Utilizations.Gefluechtetenunterkunft, 1);
-      this.changePrioOfTag(Tags.SozialeEinrichtung, 1)
+      this.changePrioOfTag(Tags.SozialeEinrichtung, 1);
+      this.changePrioOfTag(Tags.Begegnungsort, 1);
+      this.changePrioOfTag(Tags.Bildungseinrichtung, 1);
+      this.changePrioOfTag(Tags.Gesundheit, 1);
     }
     else {
       this.changePrioOfTag(Tags.Infrastruktur, 1);
