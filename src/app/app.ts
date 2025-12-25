@@ -36,15 +36,15 @@ const tagsForTanzschule = [Tags.Innenraum, Tags.ErfordertLicht, Tags.Stapelbar, 
 const tagsForMusikschule = [Tags.Innenraum, Tags.ErfordertLicht, Tags.Stapelbar, Tags.Rentabel, Tags.KonstantesPublikum, Tags.Bildungseinrichtung, Tags.KulturelleEinrichtung, Tags.ZielgruppeKinder, Tags.ZielgruppeJungeErwachsene];
 const tagsForAtelier = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.KulturelleEinrichtung, Tags.Finanzierungsbedarf, Tags.PublikumsMagnet, Tags.Konsumfrei, Tags.Begegnungsort];
 const tagsForRepaircafe = [Tags.Innenraum, Tags.RepraesentativQuartier, Tags.SozialeEinrichtung, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.Finanzierungsbedarf, Tags.PublikumsMagnet, Tags.Konsumfrei, Tags.Begegnungsort];
-const tagsForSozialcafe = [Tags.Innenraum, Tags.RepraesentativQuartier, Tags.SozialeEinrichtung, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.Finanzierungsbedarf, Tags.PublikumsMagnet, Tags.Konsumfrei];
-const tagsForJugendtreff = [Tags.Innenraum, Tags.RepraesentativQuartier, Tags.SozialeEinrichtung, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.Finanzierungsbedarf, Tags.PublikumsMagnet, Tags.ZielgruppeJungeErwachsene, Tags.ZielgruppeKinder, Tags.Konsumfrei];
+const tagsForSozialcafe = [Tags.Innenraum, Tags.RepraesentativQuartier, Tags.SozialeEinrichtung, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.Finanzierungsbedarf, Tags.PublikumsMagnet, Tags.Konsumfrei, Tags.Begegnungsort];
+const tagsForJugendtreff = [Tags.Innenraum, Tags.RepraesentativQuartier, Tags.SozialeEinrichtung, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.Finanzierungsbedarf, Tags.PublikumsMagnet, Tags.ZielgruppeJungeErwachsene, Tags.ZielgruppeKinder, Tags.Konsumfrei, Tags.Begegnungsort];
 const tagsForSozialhotel = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.SozialeEinrichtung, Tags.ErfordertLicht, Tags.Stapelbar, Tags.Finanzierungsbedarf, Tags.KonstantesPublikum];
 const tagsForASZ = [Tags.Innenraum, Tags.RepraesentativQuartier, Tags.SozialeEinrichtung, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.Finanzierungsbedarf, Tags.KonstantesPublikum, Tags.ZielgruppeSenioren, Tags.Konsumfrei, Tags.Begegnungsort];
 const tagsForGemeindezentrum = [Tags.Innenraum, Tags.RepraesentativQuartier, Tags.SozialeEinrichtung, Tags.ErfordertLicht, Tags.Geschossuebergreifend, Tags.Finanzierungsbedarf, Tags.PublikumsMagnet, Tags.Konsumfrei, Tags.Begegnungsort];
 const tagsForSozialkaufhaus = [Tags.Innenraum, Tags.SozialeEinrichtung, Tags.ErfordertKeinLicht, Tags.Geschossuebergreifend, Tags.Stapelbar, Tags.Selbsttragend, Tags.KonstantesPublikum];
 const tagsForVereinszentrum = [Tags.Innenraum, Tags.RepraesentativQuartier, Tags.SozialeEinrichtung, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.Selbsttragend, Tags.KonstantesPublikum, Tags.Konsumfrei, Tags.Begegnungsort];
 const tagsForLernUndLeseort = [Tags.Innenraum, Tags.RepraesentativQuartier, Tags.Bildungseinrichtung, Tags.SozialeEinrichtung, Tags.ErfordertLicht, Tags.Finanzierungsbedarf, Tags.KonstantesPublikum, Tags.Konsumfrei, Tags.ZielgruppeKinder, Tags.ZielgruppeJungeErwachsene, Tags.Begegnungsort];
-const tagsForBibliothek = [Tags.Innenraum, Tags.RepraesentativStadt, Tags.Bildungseinrichtung, Tags.ErfordertLicht, Tags.Stapelbar, Tags.PublikumsMagnet, Tags.ZielgruppeKinder, Tags.ZielgruppeJungeErwachsene, Tags.ZielgruppeSenioren, Tags.Finanzierungsbedarf];
+const tagsForBibliothek = [Tags.Innenraum, Tags.RepraesentativStadt, Tags.Bildungseinrichtung, Tags.ErfordertLicht, Tags.Stapelbar, Tags.PublikumsMagnet, Tags.ZielgruppeKinder, Tags.ZielgruppeJungeErwachsene, Tags.ZielgruppeSenioren, Tags.Finanzierungsbedarf, Tags.Begegnungsort];
 const tagsForNachbarschaftsrestaurant = [Tags.Innenraum, Tags.RepraesentativQuartier, Tags.SozialeEinrichtung, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.Rentabel, Tags.PublikumsMagnet, Tags.Begegnungsort];
 const tagsForVeranstaltungssraum = [Tags.Innenraum, Tags.RepraesentativStadt, Tags.KulturelleEinrichtung, Tags.ErfordertKeinLicht, Tags.Geschossuebergreifend, Tags.Rentabel, Tags.PublikumsMagnet];
 const tagsForCoWorkingSpace = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.ErfordertLicht, Tags.Eingeschossig, Tags.KonstantesPublikum, Tags.Rentabel];
@@ -89,8 +89,8 @@ const tagsForLagerhalle = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.Indust
 const tagsForBaumarkt = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.IndustrieUndHandel, Tags.CashCow, Tags.Geschossuebergreifend, Tags.ErfordertKeinLicht, Tags.PublikumsMagnet];
 const tagsForGartencenter = [Tags.nichtRepraesentativ, Tags.IndustrieUndHandel, Tags.CashCow, Tags.Geschossuebergreifend, Tags.ErfordertLicht, Tags.PublikumsMagnet];
 const tagsForMoebelhaus = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.IndustrieUndHandel, Tags.CashCow, Tags.Geschossuebergreifend, Tags.ErfordertKeinLicht, Tags.PublikumsMagnet];
-const tagsForRechenzentrum = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.Infrastruktur, Tags.CashCow, Tags.ErfordertKeinLicht, Tags.Eingeschossig, Tags.Stapelbar, Tags.KeinPublikum];
-const tagsForStorageSpace = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.Infrastruktur, Tags.CashCow, Tags.ErfordertKeinLicht, Tags.Eingeschossig, Tags.Stapelbar, Tags.KeinPublikum];
+const tagsForRechenzentrum = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.Infrastruktur, Tags.CashCow, Tags.ErfordertKeinLicht, Tags.Stapelbar, Tags.KeinPublikum];
+const tagsForStorageSpace = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.Infrastruktur, Tags.CashCow, Tags.ErfordertKeinLicht, Tags.Stapelbar, Tags.KeinPublikum];
 const tagsForHeizkraftwerk = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.Infrastruktur, Tags.CashCow, Tags.ErfordertKeinLicht, Tags.Geschossuebergreifend, Tags.KeinPublikum];
 const tagsForWaermepumpe = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.Infrastruktur, Tags.CashCow, Tags.ErfordertKeinLicht, Tags.Geschossuebergreifend, Tags.KeinPublikum];
 const tagsForBatteriespeicher = [Tags.Innenraum, Tags.nichtRepraesentativ, Tags.Infrastruktur, Tags.CashCow, Tags.ErfordertKeinLicht, Tags.Geschossuebergreifend, Tags.KeinPublikum];
@@ -315,6 +315,7 @@ export class App {
         this.changePrioOfTag(Tags.KonstantesPublikum, 1);
 
         this.changePrioOfTag(Tags.RepraesentativQuartier, -1);
+        this.changePrioOfTag(Tags.Finanzierungsbedarf, -1);
         
         this.strikeTag(Tags.RepraesentativStadt);
         this.strikeTag(Tags.PublikumsMagnet);
@@ -723,6 +724,7 @@ export class App {
     this.changePrioOfTag(Tags.IndustrieUndHandel, 1);
     this.changePrioOfTag(Tags.Rentabel, 1);
     this.changePrioOfTag(Tags.CashCow, 1);
+    this.changePrioOfTag(Tags.Finanzierungsbedarf, -1);
   }
 
   processArmutsquotient(quotient: string | null | undefined ){
@@ -741,6 +743,7 @@ export class App {
       this.changePrioOfTag(Tags.IndustrieUndHandel, 1);
       this.changePrioOfTag(Tags.Rentabel, 1);
       this.changePrioOfTag(Tags.CashCow, 1);
+      this.changePrioOfTag(Tags.Finanzierungsbedarf, -1);
     }
   }
 
@@ -760,6 +763,7 @@ export class App {
       this.changePrioOfTag(Tags.IndustrieUndHandel, 1);
       this.changePrioOfTag(Tags.Rentabel, 1);
       this.changePrioOfTag(Tags.CashCow, 1);
+      this.changePrioOfTag(Tags.Finanzierungsbedarf, -1);
     }
   }
 
